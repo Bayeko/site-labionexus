@@ -3,21 +3,21 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Labionexus | Instrument data integrity for regulated labs</title>
-<meta name="description" content="From instrument memory to quality record: one hop, traceable and verifiable, on connected instruments too. GAMP 5 vendor documentation, EU GMP Annex 11 and ALCOA+ aligned. Built for Swiss mid-pharma, biotech and CDMOs.">
-<meta property="og:title" content="Labionexus | Instrument data integrity for regulated labs">
-<meta property="og:description" content="From instrument memory to quality record: one hop, traceable and verifiable, on connected instruments too. GAMP 5 vendor documentation, EU GMP Annex 11 and ALCOA+ aligned. Built in Switzerland.">
+<title>Labionexus | Lab automation and data in regulated environments</title>
+<meta name="description" content="Lab automation and data in regulated environments. Labionexus, Switzerland: the result produced at the bench, and the regulated record that has to trust it.">
+<meta property="og:title" content="Labionexus | Lab automation and data in regulated environments">
+<meta property="og:description" content="The result produced at the bench, and the regulated record that has to trust it. Amir Messadene, founder. Switzerland.">
 <meta property="og:type" content="website">
 <link rel="canonical" href="https://labionexus.ch/">
 <meta property="og:url" content="https://labionexus.ch/">
-<meta property="og:image" content="https://labionexus.ch/og-image.png?v=2">
+<meta property="og:image" content="https://labionexus.ch/og-image.png?v=3">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Labionexus - instrument records your auditor can independently re-verify">
+<meta property="og:image:alt" content="Labionexus: lab automation and data in regulated environments">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Labionexus | Instrument data integrity for regulated labs">
-<meta name="twitter:description" content="From instrument memory to quality record: one hop, traceable and verifiable, on connected instruments too.">
-<meta name="twitter:image" content="https://labionexus.ch/og-image.png?v=2">
+<meta name="twitter:title" content="Labionexus | Lab automation and data in regulated environments">
+<meta name="twitter:description" content="The result produced at the bench, and the regulated record that has to trust it.">
+<meta name="twitter:image" content="https://labionexus.ch/og-image.png?v=3">
 <meta name="google-site-verification" content="kR_8al3oaflG4ouD0XFEwuTOO-tNLTELdM0AJEh1Tsw">
 <meta name="theme-color" content="#fbfbf9">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%2314161c'/%3E%3Cpath d='M32 24 v44 h20' stroke='%23ffffff' stroke-width='9' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M56 68 h6 l5 -12 6 20 5 -8 h6' stroke='%232aa3c4' stroke-width='5.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
@@ -31,7 +31,6 @@
     --bg:#fbfbf9; --bg2:#f4f4f0; --panel:#ffffff;
     --ink:#171b22; --muted:#5c6572; --faint:#8b93a0;
     --accent:#0e6e8c; --accentsoft:rgba(14,110,140,.08);
-    --ok:#0f8a5f; --oksoft:rgba(15,138,95,.09);
     --red:#d8232a;
     --line:rgba(23,27,34,.10); --line2:rgba(23,27,34,.18);
     --maxw:980px;
@@ -74,12 +73,10 @@
 
   .flow{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:22px;font-family:var(--mono);font-size:13px;box-shadow:0 1px 3px rgba(23,27,34,.05)}
   .flow-title{font-size:10.5px;letter-spacing:.2em;color:var(--faint);text-transform:uppercase;text-align:center;margin-bottom:16px}
-  .flow-row{display:flex;justify-content:space-between;align-items:center;background:var(--bg2);border:1px solid var(--line);border-radius:8px;padding:10px 14px;margin-bottom:8px}
-  .flow-row b{font-weight:600}
-  .flow-row span{color:var(--faint);font-size:11.5px}
-  .flow-sig{border:1px solid rgba(14,110,140,.35);background:var(--accentsoft);border-radius:8px;text-align:center;padding:11px;margin:12px 0;color:var(--accent);font-weight:600}
-  .flow-ok{background:var(--oksoft);border-color:rgba(15,138,95,.25)}
-  .flow-ok b{color:var(--ok)}
+  .flow-row{display:flex;justify-content:space-between;align-items:center;gap:12px;background:var(--bg2);border:1px solid var(--line);border-radius:8px;padding:10px 14px;margin-bottom:8px}
+  .flow-row:last-child{margin-bottom:0}
+  .flow-row b{font-weight:600;flex:none}
+  .flow-row span{color:var(--faint);font-size:11.5px;text-align:right;padding-right:10px}
 
   section{padding:60px 0;border-bottom:1px solid var(--line)}
   section p{color:var(--muted);max-width:66ch;margin-top:14px}
@@ -90,16 +87,7 @@
   .box{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:20px 22px}
   .box h3{font-size:16px;font-weight:700;margin-bottom:8px}
   .box p{font-size:14.5px;margin-top:0}
-  .box .tag{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:8px;color:var(--ok)}
-  .box .tag.out{color:var(--faint)}
-
-  .checks{list-style:none;margin-top:24px;max-width:66ch}
-  .checks li{padding:11px 0 11px 30px;border-bottom:1px solid var(--line);position:relative;font-size:15px}
-  .checks li:last-child{border-bottom:0}
-  .checks li::before{content:"✓";position:absolute;left:0;top:11px;width:19px;height:19px;border-radius:5px;background:var(--oksoft);color:var(--ok);font-size:11px;display:flex;align-items:center;justify-content:center}
-
-  .challenge{background:var(--bg2);border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:10px;padding:24px 28px;margin-top:30px;max-width:72ch}
-  .challenge p{margin-top:0;font-size:15.5px;color:var(--ink)}
+  .box .tag{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:8px;color:var(--accent)}
 
   .founder{display:grid;grid-template-columns:auto 1fr;gap:26px;align-items:start;margin-top:24px}
   @media(max-width:600px){.founder{grid-template-columns:1fr}}
@@ -137,16 +125,12 @@
   .flow-row.lit b{color:var(--accent)}
   .flow-row .dot{position:absolute;right:8px;top:50%;width:7px;height:7px;margin-top:-3.5px;border-radius:50%;background:var(--accent);opacity:0;transition:opacity .25s ease}
   .flow-row.lit .dot{opacity:1}
-  .flow-sig{transition:box-shadow .35s ease,transform .35s ease}
-  .flow-sig.lit{box-shadow:0 0 0 3px rgba(14,110,140,.15);transform:scale(1.015)}
-  .flow-ok.lit{border-color:var(--ok);background:var(--oksoft)}
-  .flow-ok.lit b{color:var(--ok)}
   .hero h1 .hl{background:linear-gradient(transparent 68%,rgba(14,110,140,.18) 68%);border-radius:2px}
   @media(prefers-reduced-motion:reduce){
     .rv{opacity:1;transform:none;transition:none}
     .hero h1,.hero .sub,.hero .btn,.hero .cred,.hero .flow{animation:none}
-    .box,.btn,.flow-row,.flow-sig,.chip{transition:none}
-    .box:hover,.btn:hover,.flow-sig.lit{transform:none}
+    .box,.btn,.flow-row,.chip{transition:none}
+    .box:hover,.btn:hover{transform:none}
   }
 
   footer{padding:36px 0;color:var(--faint);font-size:13px}
@@ -159,103 +143,78 @@
 <nav><div class="wrap nav-in">
   <a class="logo" href="#"><svg class="mark" aria-hidden="true" width="30" height="30" viewBox="0 0 100 100"><rect width="100" height="100" rx="22" fill="#14161c"/><path d="M32 24 v44 h20" stroke="#ffffff" stroke-width="9" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M56 68 h6 l5 -12 6 20 5 -8 h6" stroke="#2aa3c4" stroke-width="5.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Labionexus</a>
   <div class="nav-links">
-    <a href="#scope">Scope</a>
-    <a href="#validation">Validation</a>
     <a href="#about">About</a>
-    <a class="btn" href="#contact">Book a call</a>
+    <a href="#field">The field</a>
+    <a href="#now">Now</a>
+    <a class="btn" href="#contact">Get in touch</a>
   </div>
 </div></nav>
 
 <header class="hero"><div class="wrap hero-grid">
   <div>
-    <div class="eyebrow">Instrument data integrity for regulated labs</div>
-    <h1>Signed instrument records your auditor can <span class="hl">re-verify</span>.</h1>
-    <p class="sub">A balance, a pH meter, a titrator holds the value it just produced. Between that memory and your quality record there is usually a manual step: a printout, a display read, a file moved by hand. Labionexus is being built to take the reading at the instrument and sign it on the gateway at the point of capture. The result is a Trace: a signed record that anyone holding the device public key can re-verify, with nothing of ours installed on the verifier's side. Signing and re-verification run today. Instrument capture, the route into your LIMS or ELN and the site qualification package are built with the first lab.</p>
-    <a class="btn" href="https://calendly.com/amir-messadene-labionexus/30min">Book a 20-minute discovery call</a>
+    <div class="eyebrow">Lab automation and data in regulated environments</div>
+    <h1>The result at the bench, and the <span class="hl">record that has to trust it</span>.</h1>
+    <p class="sub">A laboratory produces a result: an analyst at the bench, a pipetting robot, an instrument. Somewhere else, a regulated record has to trust that result, in a batch record, a certificate of analysis, a qualification file. Labionexus is about what happens between the two.</p>
+    <a class="btn" href="https://calendly.com/amir-messadene-labionexus/call-with-amir">Book a call</a>
     <div class="cred">
-      <span>GMP data integrity at Roche</span>
-      <span>GAMP 5 vendor documentation</span>
-      <span class="ch">Built in Switzerland</span>
+      <span>Lonza &middot; purification and lab automation</span>
+      <span>Roche &middot; GxP master data</span>
+      <span class="ch">Switzerland</span>
     </div>
   </div>
-  <div class="flow" id="flow">
-    <div class="flow-title">Instrument &rarr; signed handoff &rarr; LIMS</div>
-    <div class="flow-row src"><b>Balances</b><span>raw export</span><i class="dot"></i></div>
-    <div class="flow-row src"><b>pH-meters</b><span>raw export</span><i class="dot"></i></div>
-    <div class="flow-row src"><b>Karl Fischer</b><span>raw export</span><i class="dot"></i></div>
-    <div class="flow-sig">Trace signed on the gateway &middot; Ed25519 / SHA-256</div>
-    <div class="flow-row flow-ok dst"><b>LIMS</b><span>route built with you</span><i class="dot"></i></div>
-    <div class="flow-row flow-ok dst"><b>ELN</b><span>route built with you</span><i class="dot"></i></div>
+  <div class="flow" id="flow" aria-label="Where a result lives">
+    <div class="flow-title">Where a result lives</div>
+    <div class="flow-row"><b>Bench</b><span>analyst or robot</span><i class="dot"></i></div>
+    <div class="flow-row"><b>Instrument software</b><span>method, raw data</span><i class="dot"></i></div>
+    <div class="flow-row"><b>Lab information system</b><span>specification, result</span><i class="dot"></i></div>
+    <div class="flow-row"><b>Regulated record</b><span>batch record, certificate</span><i class="dot"></i></div>
   </div>
 </div></header>
 
 <main>
-<section class="rv"><div class="wrap">
-  <div class="eyebrow">The problem</div>
-  <h2>Your instrument holds the reading. The question is how it reaches the quality record.</h2>
-  <p>Between the memory of a balance, a pH meter or a titrator and your quality record, a manual step often survives: a printout, a display read, a file moved by hand. It survives on connected instruments too, whenever the handover is taken as given rather than checked. That step is where attributability breaks, because the record is not controlled at the moment it is created.</p>
-  <p>We sign the reading on the gateway at the point of capture, producing a Trace. The signing key is generated on the gateway and never transmitted, so a valid Trace can only have been produced by that gateway's own key. <strong>Capture is read-only: the instrument is not driven, reconfigured or updated, and its qualified state is untouched.</strong> Signatures by your people stay in the system where you sign today, under your own Part 11 or Annex 11 controls.</p>
-</div></section>
-
-<section class="rv" id="scope"><div class="wrap">
-  <div class="eyebrow">Scope</div>
-  <h2>Does someone retype the number?</h2>
-  <p>We do not start from a list of instruments. We start from the hop between the instrument and your record, and from the manual step that still sits in the middle of it.</p>
-  <div class="cols">
-    <div class="box"><div class="tag">In scope</div><h3>A printout is read and typed in</h3><p>Balances, pH meters, Karl Fischer titrators, most benchtop instruments that already print what they measure.</p></div>
-    <div class="box"><div class="tag">In scope</div><h3>A display is copied to a logsheet</h3><p>Fridges, incubators, stability chambers, differential pressure gauges. The clipboard on the door is a GxP record.</p></div>
-    <div class="box"><div class="tag">In scope</div><h3>A value is copied out of a file</h3><p>Spectroscopy (Raman, FTIR, UV/Vis, NIR), TOC analyzers, osmometers. We take the export the instrument already produces.</p></div>
-    <div class="box"><div class="tag out">Usually not</div><h3>No one retypes it</h3><p>Chromatography such as Empower or ChemStation is usually already integrated, and we will tell you so. We bridge it only if you want one record across the whole bench.</p></div>
-  </div>
-  <p style="font-size:14.5px">Not sure which of your readings qualify? That is the first thing we work out together.</p>
-</div></section>
-
-<section class="rv" id="validation"><div class="wrap">
-  <div class="eyebrow">Validation</div>
-  <h2>Documentation your QA qualifies against intended use.</h2>
-  <ul class="checks">
-    <li>Standard layer documented for GAMP 5 assessment, categorization completed by your team</li>
-    <li>Site-specific URS, Risk Assessment and Requirements Traceability Matrix</li>
-    <li>Full IQ/OQ/PQ protocols tailored to your environment</li>
-    <li>Vendor Qualification Package ready for execution by your QA or the CSV resource you already use</li>
-    <li>Every Trace stays queryable and independently re-verifiable, a record for your quality file</li>
-  </ul>
-  <div class="challenge">
-    <p><strong>The test we invite you to run on any supplier, including us:</strong> ask for one Trace, a reading signed on the device that captured it, at the moment of capture, plus the public key of that device. Then see whether you can check it yourself with nothing of theirs installed. Ask us for one Trace, and we will run that check with you.</p>
-  </div>
-  <div class="ribbon">
-    <span class="chip">21 CFR Part 11</span>
-    <span class="chip">EU GMP Annex 11</span>
-    <span class="chip">GAMP 5 2nd Ed.</span>
-    <span class="chip">ALCOA+</span>
-    <span class="chip">MHRA GXP guidance</span>
-  </div>
-</div></section>
-
 <section class="rv" id="about"><div class="wrap">
-  <div class="eyebrow">Who you are working with</div>
-  <h2>About Labionexus</h2>
+  <div class="eyebrow">Who</div>
+  <h2>Amir Messadene, founder.</h2>
   <div class="founder">
     <img class="avatar" src="/amir-messadene.jpg" alt="Amir Messadene, founder of Labionexus" width="88" height="88">
     <div>
-      <p style="margin-top:0"><strong>Amir Messadene</strong>, founder. Biotechnology engineer (HES-SO Valais-Wallis) with hands-on GMP data integrity experience at Roche and microbial downstream purification at Lonza.</p>
-      <p>Labionexus delivers instrument-to-LIMS integration for Swiss mid-pharma, biotech and CDMOs, with the qualification documentation your QA needs. Each project is scoped with you before anything is built.</p>
-      <p style="font-size:14.5px"><a href="https://ch.linkedin.com/in/amir-messadene">Connect with Amir on LinkedIn</a></p>
+      <p style="margin-top:0">My background is the lab bench and GxP data: at Lonza I ran purification and analytical work and automated it, at Roche I was approval manager for GxP master data, the person who signs off supplier qualification records. So I have been on both sides of a reading, the one who produces it and the one who has to trust it in a regulated record.</p>
+      <p>At the bench, that meant implementing a CE-SDS method to replace gels, and automating its sample preparation on a Tecan Fluent, with the data path from the sample list into the instrument software and back.</p>
+      <p>Biotechnology engineer, HES-SO Valais-Wallis. Switzerland.</p>
+      <p style="font-size:14.5px"><a href="https://ch.linkedin.com/in/amir-messadene">Amir on LinkedIn</a></p>
     </div>
   </div>
 </div></section>
 
+<section class="rv" id="field"><div class="wrap">
+  <div class="eyebrow">The field</div>
+  <h2>Lab automation and lab data, in regulated environments.</h2>
+  <p>Laboratories automate: pipetting robots, instrument software, interfaces into the laboratory information system. In a regulated environment, each of those pieces is qualified before use, each change is assessed, and the data they produce has to stand in a record that someone is accountable for.</p>
+  <p>Labionexus works in that space: the automation that produces a result, and the data path that carries it into the record that has to trust it.</p>
+  <div class="ribbon">
+    <span class="chip">EU GMP Annex 11</span>
+    <span class="chip">21 CFR Part 11</span>
+    <span class="chip">GAMP 5</span>
+  </div>
+</div></section>
+
+<section class="rv" id="now"><div class="wrap">
+  <div class="eyebrow">Now</div>
+  <h2>What I am doing at the moment.</h2>
+  <p>I am in conversation with validation teams, QC laboratories and instrument makers about where the days go once a lab automates. If that is your work too, I would like to hear how it looks from your side.</p>
+</div></section>
+
 <section class="contact rv" id="contact"><div class="wrap">
   <div class="eyebrow">Get in touch</div>
-  <h2>Book a 20-minute discovery call.</h2>
+  <h2>Write a few lines, or book a call.</h2>
   <div class="contact-grid">
     <div>
-      <p style="margin-top:10px">Tell us your instrument scope, LIMS environment and CSV requirements. We reply within one business day. No obligation.</p>
-      <p style="margin-top:20px"><a class="btn" href="https://calendly.com/amir-messadene-labionexus/30min">Book a discovery call</a></p>
+      <p style="margin-top:10px">Validation teams, QC laboratories, instrument makers, former colleagues: if this is your field too, I reply within one business day.</p>
+      <p style="margin-top:20px"><a class="btn" href="https://calendly.com/amir-messadene-labionexus/call-with-amir">Book a call</a></p>
       <div style="margin-top:24px">
         <div class="fact"><b>Email</b> <a href="mailto:info@labionexus.ch">info@labionexus.ch</a></div>
         <div class="fact"><b>Location</b> Switzerland</div>
-        <div class="fact"><b>Response time</b> Within 24 hours</div>
+        <div class="fact"><b>LinkedIn</b> <a href="https://ch.linkedin.com/in/amir-messadene">Amir Messadene</a></div>
       </div>
     </div>
     <form action="https://formsubmit.co/info@labionexus.ch" method="POST" class="cform">
@@ -265,9 +224,9 @@
       <div class="field"><label for="f-name">Name *</label><input id="f-name" type="text" name="name" required></div>
       <div class="field"><label for="f-org">Organization</label><input id="f-org" type="text" name="organization"></div>
       <div class="field"><label for="f-email">Email *</label><input id="f-email" type="email" name="email" required></div>
-      <div class="field"><label for="f-msg">Message *</label><textarea id="f-msg" name="message" rows="4" required placeholder="Instrument + LIMS you'd want to connect"></textarea></div>
+      <div class="field"><label for="f-msg">Message *</label><textarea id="f-msg" name="message" rows="4" required placeholder="What you are working on"></textarea></div>
       <button class="btn" type="submit" style="width:100%;border:0;cursor:pointer;font-family:var(--sans)">Send message</button>
-      <p style="color:var(--faint);font-size:12px;margin-top:12px;text-align:center">We process your data per Swiss nLPD and EU GDPR. <a href="/privacy.html">Privacy Policy</a></p>
+      <p style="color:var(--faint);font-size:12px;margin-top:12px;text-align:center">Your data is processed under Swiss and EU data protection law. <a href="/privacy.html">Privacy Policy</a></p>
     </form>
   </div>
 </div></section>
@@ -275,7 +234,7 @@
 
 <footer><div class="wrap foot-in">
   <div style="display:flex;align-items:center;gap:8px"><svg class="mark" aria-hidden="true" width="22" height="22" viewBox="0 0 100 100"><rect width="100" height="100" rx="22" fill="#14161c"/><path d="M32 24 v44 h20" stroke="#ffffff" stroke-width="9" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M56 68 h6 l5 -12 6 20 5 -8 h6" stroke="#2aa3c4" stroke-width="5.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>&copy; 2026 Labionexus. All rights reserved.</div>
-  <div><a href="/privacy.html">Privacy Policy</a> &middot; Built in Switzerland</div>
+  <div><a href="/impressum.html">Impressum</a> &middot; <a href="/privacy.html">Privacy Policy</a> &middot; <a href="/terms.html">Terms of Use</a> &middot; Switzerland</div>
 </div></footer>
 
 <script>
@@ -295,36 +254,28 @@
     els.forEach(function(e){ io.observe(e); });
   }
 
-  // flow pulse: one reading travels instrument -> signature -> LIMS/ELN
+  // panel pulse: one result travels from the bench to the regulated record
   if (reduce) return;
   var flow = document.getElementById('flow');
   if (!flow) return;
-  var srcs = flow.querySelectorAll('.src');
-  var sig  = flow.querySelector('.flow-sig');
-  var dsts = flow.querySelectorAll('.dst');
+  var rows = flow.querySelectorAll('.flow-row');
   var i = 0, timer = null, running = false;
 
   function clearAll(){
     flow.querySelectorAll('.lit').forEach(function(e){ e.classList.remove('lit'); });
   }
-  function cycle(){
+  function step(){
     clearAll();
-    var s = srcs[i % srcs.length];
-    s.classList.add('lit');
+    rows[i % rows.length].classList.add('lit');
+    i++;
     timer = setTimeout(function(){
-      sig.classList.add('lit');
-      timer = setTimeout(function(){
-        dsts.forEach(function(d){ d.classList.add('lit'); });
-        timer = setTimeout(function(){
-          clearAll(); i++;
-          timer = setTimeout(cycle, 900);
-        }, 1400);
-      }, 900);
-    }, 900);
+      if (i % rows.length === 0) { clearAll(); timer = setTimeout(step, 1200); }
+      else { step(); }
+    }, 1100);
   }
   var fio = new IntersectionObserver(function(entries){
     entries.forEach(function(en){
-      if (en.isIntersecting && !running) { running = true; cycle(); }
+      if (en.isIntersecting && !running) { running = true; i = 0; step(); }
       else if (!en.isIntersecting && running) { running = false; clearTimeout(timer); clearAll(); }
     });
   }, { threshold: 0.3 });
