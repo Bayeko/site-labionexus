@@ -121,16 +121,11 @@
   .chip:hover{border-color:var(--accent);color:var(--accent)}
   .btn{transition:background .2s ease,transform .15s ease}
   .btn:hover{transform:translateY(-1px)}
-  .flow-row{position:relative;transition:border-color .3s ease,background .3s ease}
-  .flow-row.lit{border-color:var(--accent);background:var(--accentsoft)}
-  .flow-row.lit b{color:var(--accent)}
-  .flow-row .dot{position:absolute;right:8px;top:50%;width:7px;height:7px;margin-top:-3.5px;border-radius:50%;background:var(--accent);opacity:0;transition:opacity .25s ease}
-  .flow-row.lit .dot{opacity:1}
   .hero h1 .hl{background:linear-gradient(transparent 68%,rgba(14,110,140,.18) 68%);border-radius:2px}
   @media(prefers-reduced-motion:reduce){
     .rv{opacity:1;transform:none;transition:none}
     .hero h1,.hero .sub,.hero .btn,.hero .cred,.hero .flow{animation:none}
-    .box,.btn,.flow-row,.chip{transition:none}
+    .box,.btn,.chip{transition:none}
     .box:hover,.btn:hover{transform:none}
   }
 
@@ -155,7 +150,7 @@
   <div>
     <div class="eyebrow">Lab automation and data in regulated environments</div>
     <h1>The result at the bench, and the <span class="hl">record that has to trust it</span>.</h1>
-    <p class="sub">A laboratory produces a result: an analyst at the bench, a pipetting robot, an instrument. Somewhere else, a regulated record has to trust that result, in a batch record, a certificate of analysis, a qualification file. Labionexus is about what happens between the two.</p>
+    <p class="sub">A laboratory produces a result: an analyst at the bench, a robot, an instrument. Somewhere else, a regulated record has to trust that result, in a batch record, a certificate of analysis, a qualification file.</p>
     <a class="btn" href="https://calendly.com/amir-messadene-labionexus/call-with-amir">Book a call</a>
     <div class="cred">
       <span>Lonza &middot; purification and lab automation</span>
@@ -165,10 +160,10 @@
   </div>
   <div class="flow" id="flow" aria-label="Where a result lives">
     <div class="flow-title">Where a result lives</div>
-    <div class="flow-row"><b>Bench</b><span>analyst or robot</span><i class="dot"></i></div>
-    <div class="flow-row"><b>Instrument software</b><span>method, raw data</span><i class="dot"></i></div>
-    <div class="flow-row"><b>Lab information system</b><span>specification, result</span><i class="dot"></i></div>
-    <div class="flow-row"><b>Regulated record</b><span>batch record, certificate</span><i class="dot"></i></div>
+    <div class="flow-row"><b>Bench</b><span>analyst or robot</span></div>
+    <div class="flow-row"><b>Instrument software</b><span>method, raw data</span></div>
+    <div class="flow-row"><b>Lab information system</b><span>specification, result</span></div>
+    <div class="flow-row"><b>Regulated record</b><span>batch record, certificate</span></div>
   </div>
 </div></header>
 
@@ -180,7 +175,7 @@
     <img class="avatar" src="/amir-messadene.jpg" alt="Amir Messadene, founder of Labionexus" width="88" height="88">
     <div>
       <p style="margin-top:0">My background is the lab bench and GxP data: at Lonza I ran purification and analytical work and automated it, at Roche I was approval manager for GxP master data, the person who signs off supplier qualification records. So I have been on both sides of a reading, the one who produces it and the one who has to trust it in a regulated record.</p>
-      <p>At the bench, that meant implementing a CE-SDS method to replace gels, and automating its sample preparation on a Tecan Fluent, with the data path from the sample list into the instrument software and back.</p>
+      <p>At the bench, that included implementing a new analytical method and automating its sample preparation.</p>
       <p>Biotechnology engineer, HES-SO Valais-Wallis. Switzerland.</p>
       <p style="font-size:14.5px"><a href="https://ch.linkedin.com/in/amir-messadene">Amir on LinkedIn</a></p>
     </div>
@@ -190,7 +185,7 @@
 <section class="rv" id="field"><div class="wrap">
   <div class="eyebrow">The field</div>
   <h2>Lab automation and lab data, in regulated environments.</h2>
-  <p>Laboratories automate: pipetting robots, instrument software, interfaces into the laboratory information system. In a regulated environment, each of those pieces is qualified before use, each change is assessed, and the data they produce has to stand in a record that someone is accountable for.</p>
+  <p>Laboratories automate: robots, instrument software, interfaces into the laboratory information system. In a regulated environment, each of those pieces is qualified before use, each change is assessed, and the data they produce has to stand in a record that someone is accountable for.</p>
   <p>Labionexus works in that space: the automation that produces a result, and the data path that carries it into the record that has to trust it.</p>
   <div class="ribbon">
     <span class="chip">EU GMP Annex 11</span>
@@ -202,7 +197,7 @@
 <section class="rv" id="now"><div class="wrap">
   <div class="eyebrow">Now</div>
   <h2>What I am doing at the moment.</h2>
-  <p>I am in conversation with validation teams, QC laboratories and instrument makers about where the days go once a lab automates. If that is your work too, I would like to hear how it looks from your side.</p>
+  <p>I am in conversation with people who automate regulated laboratories, and with people who validate them, about where the days go once a lab automates. If that is your work too, I would like to hear how it looks from your side.</p>
 </div></section>
 
 <section class="contact rv" id="contact"><div class="wrap">
@@ -210,7 +205,7 @@
   <h2>Write a few lines, or book a call.</h2>
   <div class="contact-grid">
     <div>
-      <p style="margin-top:10px">Validation teams, QC laboratories, instrument makers, former colleagues: if this is your field too, I reply within one business day.</p>
+      <p style="margin-top:10px">If this is your field too, write a few lines or book a call. I read and answer every message myself.</p>
       <p style="margin-top:20px"><a class="btn" href="https://calendly.com/amir-messadene-labionexus/call-with-amir">Book a call</a></p>
       <div style="margin-top:24px">
         <div class="fact"><b>Email</b> <a href="mailto:info@labionexus.ch">info@labionexus.ch</a></div>
@@ -254,33 +249,6 @@
     }, { threshold: 0.12 });
     els.forEach(function(e){ io.observe(e); });
   }
-
-  // panel pulse: one result travels from the bench to the regulated record
-  if (reduce) return;
-  var flow = document.getElementById('flow');
-  if (!flow) return;
-  var rows = flow.querySelectorAll('.flow-row');
-  var i = 0, timer = null, running = false;
-
-  function clearAll(){
-    flow.querySelectorAll('.lit').forEach(function(e){ e.classList.remove('lit'); });
-  }
-  function step(){
-    clearAll();
-    rows[i % rows.length].classList.add('lit');
-    i++;
-    timer = setTimeout(function(){
-      if (i % rows.length === 0) { clearAll(); timer = setTimeout(step, 1200); }
-      else { step(); }
-    }, 1100);
-  }
-  var fio = new IntersectionObserver(function(entries){
-    entries.forEach(function(en){
-      if (en.isIntersecting && !running) { running = true; i = 0; step(); }
-      else if (!en.isIntersecting && running) { running = false; clearTimeout(timer); clearAll(); }
-    });
-  }, { threshold: 0.3 });
-  fio.observe(flow);
 })();
 </script>
 </body>
