@@ -216,12 +216,13 @@
     </div>
     <form action="https://script.google.com/macros/s/AKfycbzd1l73dr6uO3yZq_qYIS2f7U47EQPq3fzTqnyyCt3GvOysXzb6Hg45qwq1Rj5ne-9F/exec" method="POST" class="cform" id="cform">
       <div class="hp" aria-hidden="true"><label>Leave this field empty <input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
-      <div class="field"><label for="f-name">Name *</label><input id="f-name" type="text" name="name" required></div>
-      <div class="field"><label for="f-org">Organization</label><input id="f-org" type="text" name="organization"></div>
-      <div class="field"><label for="f-email">Email *</label><input id="f-email" type="email" name="email" required></div>
-      <div class="field"><label for="f-msg">Message *</label><textarea id="f-msg" name="message" rows="4" required placeholder="What you are working on"></textarea></div>
+      <div class="field"><label for="f-name">Name *</label><input id="f-name" type="text" name="name" maxlength="200" required></div>
+      <div class="field"><label for="f-org">Organization</label><input id="f-org" type="text" name="organization" maxlength="200"></div>
+      <div class="field"><label for="f-email">Email *</label><input id="f-email" type="email" name="email" maxlength="200" required></div>
+      <div class="field"><label for="f-msg">Message *</label><textarea id="f-msg" name="message" rows="4" maxlength="5000" required placeholder="What you are working on"></textarea></div>
       <button class="btn" type="submit" style="width:100%;border:0;cursor:pointer;font-family:var(--sans)">Send message</button>
       <p id="cform-status" role="status" aria-live="polite" style="color:var(--muted);font-size:13.5px;margin-top:12px;text-align:center;min-height:1.3em"></p>
+      <noscript><p style="color:var(--muted);font-size:13.5px;margin-top:12px;text-align:center">The form needs JavaScript. Please write to <a href="mailto:info@labionexus.ch">info@labionexus.ch</a>.</p></noscript>
       <p style="color:var(--faint);font-size:12px;margin-top:12px;text-align:center">Your message is handled as described in the <a href="/privacy.html">Privacy Policy</a>.</p>
     </form>
   </div>
@@ -257,6 +258,7 @@
   if (!f || !window.fetch || !window.FormData) return;
   var s = document.getElementById('cform-status');
   var b = f.querySelector('button[type=submit]');
+  f.addEventListener('input', function(){ if (!b.disabled) { s.textContent = ''; } });
   f.addEventListener('submit', function(ev){
     ev.preventDefault();
     b.disabled = true;
