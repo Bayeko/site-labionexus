@@ -98,7 +98,7 @@
   .chip{font-family:var(--mono);font-size:12px;color:var(--muted);border:1px solid var(--line2);border-radius:999px;padding:7px 14px;background:var(--panel)}
 
   .contact{background:var(--bg2)}
-  .contact-grid{display:grid;grid-template-columns:1fr;gap:40px;margin-top:8px;max-width:560px}
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:8px}
   @media(max-width:700px){.contact-grid{grid-template-columns:1fr}}
   .fact{font-size:14.5px;color:var(--muted);padding:9px 0;border-bottom:1px solid var(--line)}
   .fact b{color:var(--ink);display:inline-block;min-width:130px;font-weight:600}
@@ -107,6 +107,7 @@
   .field label{display:block;font-size:13px;font-weight:600;margin-bottom:5px}
   .field input,.field textarea{width:100%;background:var(--bg);border:1px solid var(--line2);border-radius:8px;padding:10px 12px;font-family:var(--sans);font-size:14.5px;color:var(--ink)}
   .field input:focus,.field textarea:focus{outline:2px solid var(--accent);outline-offset:0;border-color:var(--accent)}
+  .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
 
   /* motion */
   .rv{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
@@ -213,6 +214,16 @@
         <div class="fact"><b>LinkedIn</b> <a href="https://ch.linkedin.com/in/amir-messadene">Amir Messadene</a></div>
       </div>
     </div>
+    <form action="https://script.google.com/macros/s/AKfycbzd1l73dr6uO3yZq_qYIS2f7U47EQPq3fzTqnyyCt3GvOysXzb6Hg45qwq1Rj5ne-9F/exec" method="POST" class="cform" id="cform">
+      <div class="hp" aria-hidden="true"><label>Leave this field empty <input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+      <div class="field"><label for="f-name">Name *</label><input id="f-name" type="text" name="name" required></div>
+      <div class="field"><label for="f-org">Organization</label><input id="f-org" type="text" name="organization"></div>
+      <div class="field"><label for="f-email">Email *</label><input id="f-email" type="email" name="email" required></div>
+      <div class="field"><label for="f-msg">Message *</label><textarea id="f-msg" name="message" rows="4" required placeholder="What you are working on"></textarea></div>
+      <button class="btn" type="submit" style="width:100%;border:0;cursor:pointer;font-family:var(--sans)">Send message</button>
+      <p id="cform-status" role="status" aria-live="polite" style="color:var(--muted);font-size:13.5px;margin-top:12px;text-align:center;min-height:1.3em"></p>
+      <p style="color:var(--faint);font-size:12px;margin-top:12px;text-align:center">Your message is handled as described in the <a href="/privacy.html">Privacy Policy</a>.</p>
+    </form>
   </div>
 </div></section>
 </main>
@@ -238,6 +249,30 @@
     }, { threshold: 0.12 });
     els.forEach(function(e){ io.observe(e); });
   }
+})();
+
+// contact form: send in the page, show the result, fall back to the email address
+(function(){
+  var f = document.getElementById('cform');
+  if (!f || !window.fetch || !window.FormData) return;
+  var s = document.getElementById('cform-status');
+  var b = f.querySelector('button[type=submit]');
+  f.addEventListener('submit', function(ev){
+    ev.preventDefault();
+    b.disabled = true;
+    s.textContent = 'Sending...';
+    fetch(f.action, { method: 'POST', body: new URLSearchParams(new FormData(f)) })
+      .then(function(r){ return r.json(); })
+      .then(function(j){
+        if (!j || !j.ok) { throw new Error('not sent'); }
+        f.reset();
+        s.textContent = 'Message sent.';
+      })
+      .catch(function(){
+        s.textContent = 'The message could not be sent. Please write to info@labionexus.ch.';
+      })
+      .then(function(){ b.disabled = false; });
+  });
 })();
 </script>
 </body>
